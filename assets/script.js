@@ -92,5 +92,41 @@ function displayForecast(data) {
       );
       // Handle the error or display a message to the user
     }
+  } 
+  // Function to add a city to the search history and store it in local storage
+  function addToSearchHistory(city) {
+    // Retrieve existing search history from local storage
+    const searchHistory =
+      JSON.parse(localStorage.getItem("searchHistory")) || [];
+
+    // Add the new city to the search history array
+    searchHistory.push(city);
+
+    // Store the updated search history in local storage
+    localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+
+    // Create a button element and append it to the history list using jQuery
+    const $button = $("<button>").text(city).addClass("history-button");
+    $("#history").append($button);
   }
+
+  // Function to load the search history from local storage
+  function loadSearchHistory() {
+    // Retrieve the search history from local storage
+    const searchHistory =
+      JSON.parse(localStorage.getItem("searchHistory")) || [];
+
+    // Display the search history as buttons in your HTML using jQuery
+    const $historyList = $("#history");
+    $historyList.empty(); // Clear existing buttons
+
+    searchHistory.forEach(function (city) {
+      const $button = $("<button>").text(city).addClass("history-button");
+      $historyList.append($button);
+    });
+  }
+  // Load and display the search history when the page is ready
+  $(document).ready(function () {
+    loadSearchHistory();
+  });
 }
