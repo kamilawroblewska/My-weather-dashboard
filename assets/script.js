@@ -36,3 +36,23 @@ function fetchWeatherData(city) {
       // Handle errors, display an error message to the user
     });
 }
+// Function to display current weather using jQuery
+function displayCurrentWeather(data) {
+  // Extract relevant data from the API response
+  const city = data.city.name;
+  const date = new Date(data.list[0].dt * 1000);
+  const iconCode = data.list[0].weather[0].icon;
+  const temperature = data.list[0].main.temp;
+  const humidity = data.list[0].main.humidity;
+  const windSpeed = data.list[0].wind.speed;
+
+  // Update the HTML content for current weather using jQuery
+  $("#today").html(`
+      <h2>${city} (${date.toLocaleDateString()})
+      <img src="https://openweathermap.org/img/wn/${iconCode}.png" alt="Weather Icon" class="icon"></h2>
+      <p>Temperature: ${temperature}°C</p>
+      <p>Wind Speed: ${windSpeed} m/s</p>
+      <p>Humidity: ${humidity}%</p>
+      
+    `);
+}
