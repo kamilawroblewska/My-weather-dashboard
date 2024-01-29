@@ -64,7 +64,7 @@ function displayForecast(data) {
   $("#forecast").empty();
 
   // Iterate through the forecast data and display each day's information
-  for (let i = 0; i < data.list.length; i += 8) {
+  for (let i = 1; i < data.list.length; i += 8) {
     // Use a step of 8 to get once per day data
     const dayData = data.list[i];
 
