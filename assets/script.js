@@ -56,3 +56,41 @@ function displayCurrentWeather(data) {
       
     `);
 }
+// Function to display 5-day forecast using jQuery
+function displayForecast(data) {
+  // Cleared previous forecast content
+  $("#forecast").empty();
+
+  // Iterated through the forecast data and display each day's information
+  for (let i = 0; i < data.list.length; i += 8) {
+    // Using a step of 8 to get once per day data
+    const dayData = data.list[i];
+
+    if (dayData) {
+      const iconCode = dayData.weather[0].icon;
+      const dateTimestamp = dayData.dt * 1000; // Converted Unix timestamp to milliseconds
+      const date = new Date(dateTimestamp);
+      const formattedDate = date.toLocaleDateString();
+      const temperature = dayData.main.temp;
+      const windSpeed = dayData.wind.speed;
+      const humidity = dayData.main.humidity;
+
+      // Created a div for each day's forecast and appended it to the forecast section using jQuery
+      const forecastItem = $(`
+          <div class="col-md-2 forecast-item">
+            <h4>${formattedDate}</h4>
+            <img src="https://openweathermap.org/img/wn/${iconCode}.png" alt="Weather Icon">
+            <p>Temp: ${temperature}°C</p>
+            <p>Wind Speed: ${windSpeed} m/s</p>
+            <p>Humidity: ${humidity}%</p>
+          </div>
+        `);
+      $("#forecast").append(forecastItem);
+    } else {
+      console.error(
+        "API response does not contain valid weather data for day " + i
+      );
+      // Handle the error or display a message to the user
+    }
+  }
+}
