@@ -19,7 +19,7 @@ The Weather Forecast App is a web-based application that allows users to check t
 
 ## How to Use
 
-![screen](./Assets/screenshot1.png)  
+![screen](./assets/screen1.png)  
 
 Open the index.html file in your web browser to launch the Weather Forecast App.
 Enter a city name in the search input and click the "Search" button to retrieve weather data.
