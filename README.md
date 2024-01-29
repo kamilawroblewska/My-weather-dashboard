@@ -1,7 +1,7 @@
 # Weather Forecast App
 
 The Weather Forecast App is a web-based application that allows users to check the weather outlook for multiple cities, helping them plan their trips accordingly. This app utilizes the OpenWeatherMap API to retrieve weather data for cities and provides both current and future weather conditions.
-
+[GitHub Pages]()
 ## Features
 
 - Search for a city and view its current and future weather conditions.  
@@ -19,7 +19,8 @@ The Weather Forecast App is a web-based application that allows users to check t
 
 ## How to Use
 
-[screen]("../../../assets/screen1.png")
+![screen](./Assets/screenshot1.png)  
+
 Open the index.html file in your web browser to launch the Weather Forecast App.
 Enter a city name in the search input and click the "Search" button to retrieve weather data.
 The current weather and 5-day forecast will be displayed on the screen.
